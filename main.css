@@ -1,0 +1,419 @@
+* {
+    --bethany-cream-nums: 234, 230, 220;
+    --bethany-forest-nums: 48, 66, 40;
+    --bethany-gold-nums: 163, 130, 72;
+    --bethany-wine-nums: 76, 32, 61;
+    --bethany-plum-nums: 38, 25, 34;
+
+    --bethany-cream: rgba(var(--bethany-cream-nums), 1);
+    --bethany-forest: rgba(var(--bethany-forest-nums), 1);
+    --bethany-gold: rgba(var(--bethany-gold-nums), 1);
+    --bethany-wine: rgba(var(--bethany-wine-nums), 1);
+    --bethany-plum: rgba(var(--bethany-plum-nums), 1);
+
+    --border-radius-small: 12px;
+    --paragraph-font-size: 18pt;
+    --h1-font-size: 72pt;
+    --h2-font-size: max(calc(var(--h1-font-size) * 0.75), 36pt);
+    --h3-font-size: max(calc(var(--h1-font-size) * 0.5), 24pt);
+
+    --ribbon-decor-bottom: 14px;
+    --ribbon-decor-height: 4px;
+    --ribbon-decor-space: 48px;
+
+    --navbar-top-buffer: 48px;
+    --min-navbar-content-vertical-gap: 72px;
+    --min-headline-content-bottom-margin: 48px;
+    --min-headline-side-alley: 32px;
+    --min-headline-content-width: 120px;
+    --min-headline-content-height: 120px;
+    --max-headline-content-width: 640px;
+
+    --navbar-height: 48px;
+    --navbar-gap-width: 14px;
+    --navitem-underline-overhang: 4px;
+    --navitem-rise-amount: 4px;
+
+    --headline-paragraph-safety-buffer: 32px;
+    --headline-overlap-width: 248px;
+
+    --min-content-alley: 64px;
+    --max-body-content-width: 860px;
+
+    --headline-image-ratio-wh: 1.05;
+    --headline-image-width: 300px;
+    --headline-image-height: calc(var(--headline-image-width) * var(--headline-image-ratio-wh));
+
+    --bethany-monogram-size: 44px;
+    --skelley-monogram-height: 36px;
+    --skelley-monogram-wh-ratio: 1.16;
+    --footer-link-rise: 2px;
+    
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bethany-plum);
+    margin: 0;
+}
+
+/* GENERAL TEXT DISPLAY */
+h1, h2, h3, a, li, span {
+    line-height: 1;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: abril-display, serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: var(--h1-font-size);
+    text-shadow: 5px 0 20px rgba(0, 0, 0, 0.7);
+    color: var(--bethany-gold);
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-family: abril-display, serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: var(--h2-font-size);
+    text-align: center;
+    padding: 40px 0 12px;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.08);
+}
+
+h3 {
+    font-family: abril-display, serif;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: lowercase;
+    font-size: var(--h3-font-size);
+    padding: 32px 0 8px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+p, a, li, span {
+    font-family: "franklin-gothic-urw", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: var(--paragraph-font-size);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HIGHLIGHT COLORS */
+*::selection {
+    background: rgba(var(--bethany-gold-nums), 0.8);
+    color: var(--bethany-cream);
+}
+
+/* IN-TEXT LINKS */
+.section-text p a span {
+    position: relative;
+    padding: 0;
+    top: 0;
+    transition: all 0.2s;
+}
+
+.section-text p a:hover span {
+    top: calc(-1 * var(--footer-link-rise));
+    padding-bottom: var(--footer-link-rise);
+}
+
+.light-bg .section-text p a span {
+    box-shadow: inset 0 -1.5px 0 0 var(--bethany-wine);
+}
+
+.light-bg .section-text p a:hover span {
+    box-shadow: inset 0 -2px 0 0 var(--bethany-wine);
+}
+
+.dark-bg .section-text p a span {
+    box-shadow: inset 0 -1.5px 0 0 var(--bethany-cream);
+}
+
+.dark-bg .section-text p a:hover span {
+    box-shadow: inset 0 -2px 0 0 var(--bethany-cream);
+}
+
+/* LIGHT & DARK BACKGROUND TEXT COLORS */
+.dark-bg h2, .dark-bg h3 {
+    color: var(--bethany-gold);
+}
+
+.dark-bg p, .dark-bg a, .dark-bg li, .dark-bg span {
+    color: var(--bethany-cream);
+}
+
+.light-bg h2, .light-bg h3 {
+    color: var(--bethany-gold);
+}
+
+.light-bg p, .light-bg a, .light-bg li, .light-bg span {
+    color: var(--bethany-wine);
+}
+
+/* MONOGRAMS */
+#bethany-monogram {
+    position: relative;
+    width: var(--bethany-monogram-size);
+    height: var(--bethany-monogram-size);
+    margin-top: 24px;
+
+    -webkit-mask: url(images/favicon-dark.svg);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+/* BACKGROUND COLOR CLASSES */
+.cream-bg {
+    background: var(--bethany-cream);
+}
+
+.forest-bg {
+    background: var(--bethany-forest);
+}
+
+.plum-bg {
+    background: var(--bethany-plum);
+}
+
+/* GOLD RIBBON DECORATION */
+.body-content-section:not(.no-ribbon), .special-ribbon {
+    padding-bottom: var(--ribbon-decor-space);
+}
+
+.body-content-section:not(.no-ribbon)::after, .special-ribbon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(100% - var(--ribbon-decor-bottom));
+    left: 0;
+    width: 100%;
+    height: var(--ribbon-decor-height);
+    background: var(--bethany-gold);
+    z-index: 1;
+}
+
+/* IMAGES AND CONTAINERS */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+}
+
+.image-container {
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+    box-shadow: 5px 7px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* HEADLINE */
+.headline-wrapper {
+    position: relative;
+}
+
+#headline-image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: url(images/memphis_unsplash_headline.jpeg) var(--bethany-plum);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#headline-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(var(--bethany-plum-nums), 1) 10%, rgba(var(--bethany-plum-nums), 0.82) 80%, rgba(var(--bethany-plum-nums), 0));
+}
+
+#headline-content-wrapper {
+    position: relative;
+    display: grid;
+    
+    grid-template-rows: [headline-top] var(--navbar-top-buffer) [navbar-start] var(--navbar-height) [navbar-end] minmax(var(--min-navbar-content-vertical-gap), auto) [headline-content-start] minmax(var(--min-headline-content-height), auto) [headline-content-end] minmax(var(--min-headline-content-bottom-margin), auto) [headline-end];
+
+    grid-template-columns: [page-start] minmax(var(--min-headline-side-alley), auto) [content-start] minmax(var(--min-headline-content-width), var(--max-headline-content-width)) [headshot-start] var(--headline-overlap-width) [content-end] calc(var(--headline-image-width) - var(--headline-overlap-width)) [headshot-end] minmax(var(--min-headline-side-alley), auto);
+}
+
+#headline-content-wrapper > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+    grid-column: content-start / content-end;
+    grid-row: navbar-start / navbar-end;
+}
+
+#navbar ul {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--navbar-gap-width);
+}
+
+#navbar a {
+    text-decoration: none;
+    padding: 0 calc(16px - var(--navitem-underline-overhang));
+}
+
+#navbar span {
+    top: 0;
+    position: relative;
+    line-height: var(--navbar-height);
+    text-transform: lowercase;
+    padding: 0 var(--navitem-underline-overhang);
+    box-shadow: inset 0 0 0 0 var(--bethany-cream);
+    transition: all 0.2s;
+}
+
+#navbar a:hover span {
+    box-shadow: inset 0 -2px 0 0 var(--bethany-cream);
+    padding-bottom: var(--navitem-rise-amount);
+    top: calc(-1 * var(--navitem-rise-amount));
+}
+
+#headline-text-content-container {
+    grid-column: content-start / content-end;
+    grid-row: headline-content-start / headline-content-end;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    z-index: 1;
+}
+
+#headline-text-content-container p {
+    margin-right: calc(var(--headline-paragraph-safety-buffer) + var(--headline-overlap-width));
+}
+
+#headline-image-container {
+    grid-column: headshot-start / headshot-end;
+    grid-row: headline-content-start / headline-content-end;
+}
+
+#headshot-image-wrapper {
+    position: relative;
+    width: var(--headline-image-width);
+    height: var(--headline-image-height);
+
+    box-shadow: 9px 12px 20px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* BODY CONTENT */
+.body-content-section {
+    position: relative;
+    display: grid;
+    grid-template-columns: [page-start] minmax(var(--min-content-alley), auto) [content-start] minmax(auto, var(--max-body-content-width)) [content-end] minmax(var(--min-content-alley), auto) [page-end];
+}
+
+.body-content-section > * {
+    grid-column: page-start / page-end;
+}
+
+.section-text {
+    grid-column: content-start / content-end;
+}
+
+.section-text p {
+    text-align: justify;
+    text-align-last: left;
+    margin-bottom: calc(var(--paragraph-font-size) * 0.5);
+}
+
+/* FOOTER */
+.footer a, .footer p, .footer span, .footer li{
+    font-size: max(calc(var(--paragraph-font-size) * 0.9), 14pt);
+}
+
+.footer li {
+    margin-bottom: 12px;
+}
+
+.footer .section-text a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer .section-text a span {
+    position: relative;
+    top: 0;
+    padding-bottom: 0;
+    box-shadow: inset 0 -1.5px 0 0 var(--bethany-cream);
+    transition: all 0.2s;
+}
+
+.footer .section-text a:hover span {
+    top: calc(-1 * var(--footer-link-rise));
+    padding-bottom: var(--footer-link-rise);
+    box-shadow: inset 0 -2px 0 0 var(--bethany-cream);
+}
+
+#footer-attributions * {
+    text-align: center;
+    font-size: 12pt;
+}
+
+#footer-attributions a {
+    text-decoration: underline;
+}
+
+#skelley-monogram {
+    margin: 8px 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: var(--skelley-monogram-height);
+    width: 100%;
+    -webkit-mask: url(images/skelley-monogram.svg);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+#skelley-monogram a {
+    display: block;
+    height: var(--skelley-monogram-height);
+    width: calc(var(--skelley-monogram-height) * var(--skelley-monogram-wh-ratio));
+
+    background: rgba(var(--bethany-cream-nums), 0.9);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+
+    transition: background-color 0.2s;
+}
+
+#skelley-monogram a:hover {
+    background: var(--bethany-cream);
+}
